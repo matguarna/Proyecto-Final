@@ -1,0 +1,30 @@
+<div>
+  {{#each payload}}
+    <li>
+      <li>
+        <strong>Producto: </strong>{{this.title}}
+        -
+        <strong>Descripcion: </strong>{{this.descripcion}}
+        -
+        <strong>Precio: </strong>{{this.price}}
+        -
+        <strong>Stock: </strong>{{this.stock}}
+        -
+        <strong>Categoria: </strong>{{this.category}}
+        <button id="botonAgregar" value={{this._id}} onclick="agregarAlCart()">Agregar al carrito</button>
+        <input type="text" id="inputId" placeholder="id carrito" />
+      </li>
+    </li>
+  {{/each}}
+
+  <center>
+    {{#if hasPrevPage}}
+      <a href="http://localhost:8080/api/productos/paginate?pagina={{prevPage}}"><button>Anterior</button></a>
+    {{/if}}
+    <strong>Página {{page}}/{{totalPages}}</strong>
+    {{#if hasNextPage}}
+      <a href="http://localhost:8080/api/productos/paginate?pagina={{nextPage}}"><button>Siguiente</button></a>
+    {{/if}}
+  </center>
+</div>
+<script type="module" src="http://localhost:8080/static/index.js"></script>
